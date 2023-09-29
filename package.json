@@ -14,6 +14,7 @@
     "@mui/material": "^5.14.11",
     "next": "latest",
     "react": "latest",
+    "react-best-gradient-color-picker": "^2.2.23",
     "react-dom": "latest",
     "valtio": "^1.11.2"
   },

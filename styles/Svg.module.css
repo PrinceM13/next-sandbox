@@ -1,0 +1,7 @@
+.active {
+  border-radius: 8px;
+  cursor: pointer;
+}
+.active:hover {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+}

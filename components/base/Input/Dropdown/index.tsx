@@ -7,6 +7,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
+import { Mui } from "@/utils";
+
 const CustomDropdown: React.FC = () => {
   const [dropdown, setDropdown] = React.useState("");
 
@@ -15,16 +17,18 @@ const CustomDropdown: React.FC = () => {
   };
 
   return (
-    <Box sx={{ minWidth: 150 }}>
-      <FormControl fullWidth>
-        <InputLabel>Dropdown</InputLabel>
-        <Select value={dropdown} label="Dropdown" onChange={handleChange} color="primary">
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
+    <Mui.Theme>
+      <Box sx={{ minWidth: 150 }}>
+        <FormControl fullWidth>
+          <InputLabel>Dropdown</InputLabel>
+          <Select value={dropdown} label="Dropdown" onChange={handleChange} color="primary">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+    </Mui.Theme>
   );
 };
 

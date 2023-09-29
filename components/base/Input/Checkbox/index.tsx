@@ -3,6 +3,8 @@
 import React from "react";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
+import { Mui } from "@/utils";
+
 const CustomCheckbox: React.FC = () => {
   const [isChecked, setIsChecked] = React.useState(false);
 
@@ -11,15 +13,17 @@ const CustomCheckbox: React.FC = () => {
   };
 
   return (
-    <FormGroup>
-      <FormControlLabel control={<Checkbox checked={!isChecked} />} label="Label" />
-      <FormControlLabel
-        required
-        control={<Checkbox checked={isChecked} onChange={handleChange} />}
-        label="Required"
-      />
-      <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
-    </FormGroup>
+    <Mui.Theme>
+      <FormGroup>
+        <FormControlLabel control={<Checkbox checked={!isChecked} />} label="Label" />
+        <FormControlLabel
+          required
+          control={<Checkbox checked={isChecked} onChange={handleChange} />}
+          label="Required"
+        />
+        <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+      </FormGroup>
+    </Mui.Theme>
   );
 };
 
