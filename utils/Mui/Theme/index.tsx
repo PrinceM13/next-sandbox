@@ -13,7 +13,8 @@ const CustomTheme: React.FC<{ children: React.ReactNode; color?: string }> = ({
     palette: {
       primary: {
         main: color ?? primay
-      }
+      },
+      mode: "dark"
     }
   });
 
