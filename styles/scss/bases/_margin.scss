@@ -1,0 +1,25 @@
+@each $key, $size in $sizings {
+  .erk-m-#{$key} {
+    margin: $size !important;
+  }
+  .erk-ml-#{$key} {
+    margin-left: $size !important;
+  }
+  .erk-mr-#{$key} {
+    margin-right: $size !important;
+  }
+  .erk-mt-#{$key} {
+    margin-top: $size !important;
+  }
+  .erk-mb-#{$key} {
+    margin-bottom: $size !important;
+  }
+  .erk-mx-#{$key} {
+    margin-left: $size !important;
+    margin-right: $size !important;
+  }
+  .erk-my-#{$key} {
+    margin-top: $size !important;
+    margin-bottom: $size !important;
+  }
+}
