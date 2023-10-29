@@ -1,3 +1,5 @@
+"use client";
+
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import * as state from "@/stores/valtio";
