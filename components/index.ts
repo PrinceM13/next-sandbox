@@ -1,3 +1,5 @@
 import ColorPicker from "./ColorPicker";
 
-export { ColorPicker };
+import * as PDF from "./PDF";
+
+export { ColorPicker, PDF };
