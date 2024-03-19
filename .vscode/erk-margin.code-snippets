@@ -1,0 +1,23 @@
+{
+  "erk-margin custom style": [
+    { "prefix": "erk-m-0", "body": "erk-m-0", "description": "margin: 0px;" },
+    { "prefix": "erk-m-1", "body": "erk-m-1", "description": "margin: 1px;" },
+    { "prefix": "erk-m-2", "body": "erk-m-2", "description": "margin: 2px;" },
+    { "prefix": "erk-m-4", "body": "erk-m-4", "description": "margin: 4px;" },
+    { "prefix": "erk-m-8", "body": "erk-m-8", "description": "margin: 8px;" },
+    { "prefix": "erk-m-12", "body": "erk-m-12", "description": "margin: 12px;" },
+    { "prefix": "erk-m-16", "body": "erk-m-16", "description": "margin: 16px;" },
+    { "prefix": "erk-m-24", "body": "erk-m-24", "description": "margin: 24px;" },
+    { "prefix": "erk-m-32", "body": "erk-m-32", "description": "margin: 32px;" },
+    { "prefix": "erk-m-48", "body": "erk-m-48", "description": "margin: 48px;" },
+    { "prefix": "erk-m-64", "body": "erk-m-64", "description": "margin: 64px;" },
+    { "prefix": "erk-m-128", "body": "erk-m-128", "description": "margin: 128px;" },
+    { "prefix": "erk-m-256", "body": "erk-m-256", "description": "margin: 256px;" },
+    { "prefix": "erk-m-512", "body": "erk-m-512", "description": "margin: 512px;" },
+    { "prefix": "erk-m-50pct", "body": "erk-m-50pct", "description": "margin: 50pct;" },
+    { "prefix": "erk-m-100pct", "body": "erk-m-100pct", "description": "margin: 100pct;" },
+    { "prefix": "erk-m-100vw", "body": "erk-m-100vw", "description": "margin: 100vw;" },
+    { "prefix": "erk-m-100vh", "body": "erk-m-100vh", "description": "margin: 100vh;" },
+    { "prefix": "erk-m-auto", "body": "erk-m-auto", "description": "margin: auto;" }
+  ]
+}
