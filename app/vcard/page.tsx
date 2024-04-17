@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import html2canvas from "html2canvas";
+
 interface IContact {
   first_name: string;
   last_name: string;
@@ -79,10 +81,36 @@ END:VCARD`;
     document.body.removeChild(link);
   };
 
+  const saveContactAsImage = async () => {
+    const cardElement = document.querySelector(".business-card-container"); // Ensure to add this class to your business card container
+
+    if (!cardElement) {
+      console.error("Business card container not found");
+      return;
+    }
+
+    try {
+      const cardElement = document.querySelector(".business-card-container") as HTMLElement; // Explicitly type cardElement as HTMLElement
+
+      const canvas = await html2canvas(cardElement, { backgroundColor: null });
+      const dataUrl = canvas.toDataURL();
+
+      // Create a link element
+      const downloadLink = document.createElement("a");
+      downloadLink.href = dataUrl;
+      downloadLink.download = "business_card.png";
+
+      // Simulate click on the link to trigger download
+      downloadLink.click();
+    } catch (error) {
+      console.error("Error capturing business card:", error);
+    }
+  };
+
   return (
     <div className="w-full flex flex-col items-center gap-8 px-4 py-10 max-w-[500px] m-auto">
       <h1 className="text-2xl">Electronic Business Card</h1>
-      <div className="flex flex-col items-center gap-6 rounded-xl px-8 sm:px-12 py-12 w-full bg-gradient-to-b from-blue-600 from-10% via-sky-600 via-30% to-teal-600 to-90%">
+      <div className="business-card-container flex flex-col items-center gap-6 rounded-xl px-8 sm:px-12 py-16 w-full bg-gradient-to-b from-blue-600 from-10% via-sky-600 via-30% to-teal-600 to-90%">
         <Image
           alt="profile-pic"
           className="rounded-full"
@@ -97,23 +125,24 @@ END:VCARD`;
           <p>{contact?.job_title}</p>
           <p>@ {contact?.organization.name}</p>
         </div>
-        <div className="flex flex-col gap-2 w-full">
+        <hr className="w-full sm:w-[80%] border-1 border-neutral-200" />
+        <div className="flex flex-col gap-2 w-fit">
           <p>email: {contact?.email}</p>
           <p>phone: {contact?.phone}</p>
-          <Link href={contact?.social} target="_blank" className="truncate">
-            social: {contact?.social}
+          <Link href={contact?.social} target="_blank" className="">
+            linkedIn: {contact?.social.split("/").pop()}
           </Link>
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row gap-4 w-full">
         <button
-          onClick={saveContactAsVCard}
+          onClick={saveContactAsImage}
           className={
             "min-w-[200px] w-full m-auto p-4 bg-pink-600 rounded-xl text-neutral-200 hover:bg-pink-700"
           }
         >
-          Download as Photo
+          Download as Image
         </button>
         <button
           onClick={saveContactAsVCard}
