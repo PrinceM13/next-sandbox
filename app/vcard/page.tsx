@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+
 interface IContact {
   first_name: string;
   last_name: string;
@@ -71,22 +74,56 @@ END:VCARD`;
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
-    // Clean up
+    // Clean upmax-w-[500px]
     URL.revokeObjectURL(downloadUrl);
     document.body.removeChild(link);
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-8 px-4 py-10">
-      <h1 className="text-4xl">Vcard Page</h1>
-      <button
-        onClick={saveContactAsVCard}
-        className={
-          "w-[200px] m-auto p-4 bg-amber-400 rounded-xl text-neutral-200 hover:bg-amber-500"
-        }
-      >
-        Download VCard
-      </button>
+    <div className="w-full flex flex-col items-center gap-8 px-4 py-10 max-w-[500px] m-auto">
+      <h1 className="text-2xl">Electronic Business Card</h1>
+      <div className="flex flex-col items-center gap-6 rounded-xl px-8 sm:px-12 py-12 w-full bg-gradient-to-b from-blue-600 from-10% via-sky-600 via-30% to-teal-600 to-90%">
+        <Image
+          alt="profile-pic"
+          className="rounded-full"
+          src={contact?.photo}
+          width={200}
+          height={200}
+        />
+        <div className="text-xl">
+          {contact?.first_name} {contact?.last_name}
+        </div>
+        <div className="flex flex-col items-center">
+          <p>{contact?.job_title}</p>
+          <p>@ {contact?.organization.name}</p>
+        </div>
+        <div className="flex flex-col gap-2 w-full">
+          <p>email: {contact?.email}</p>
+          <p>phone: {contact?.phone}</p>
+          <Link href={contact?.social} target="_blank" className="truncate">
+            social: {contact?.social}
+          </Link>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4 w-full">
+        <button
+          onClick={saveContactAsVCard}
+          className={
+            "min-w-[200px] w-full m-auto p-4 bg-pink-600 rounded-xl text-neutral-200 hover:bg-pink-700"
+          }
+        >
+          Download as Photo
+        </button>
+        <button
+          onClick={saveContactAsVCard}
+          className={
+            "min-w-[200px] w-full m-auto p-4 bg-indigo-600 rounded-xl text-neutral-200 hover:bg-indigo-700"
+          }
+        >
+          Download as VCard
+        </button>
+      </div>
     </div>
   );
 }
